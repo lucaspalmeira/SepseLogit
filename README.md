@@ -28,16 +28,15 @@ O problema é modelado como um vector space model, onde:
 ```
 .
 ├── data/
-│   └── GSE38531_series_matrix.txt
+│   └── gse_data_no_header.txt
 │
 ├── scripts/
-│   ├── load_matrix.m
-│   ├── preprocess_matrix.m
-│   ├── logistic_model.m
-│   ├── feature_selection.m
-│   └── reduced_model.m
+│   └── script_main.m
 │
 ├── figures/
+│   └── figure_1.png
+│   └── figure_2.png
+│   └── figure_3.png
 │
 └── README.md
 ```
