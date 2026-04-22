@@ -11,20 +11,85 @@
 %   Classe 0 = controle não infectado
 %
 % IMPORTANTE:
-% 1) Antes de rodar, a variável A deve estar carregada no workspace
-% 2) Confirme se A possui 35 colunas e se a ordem das amostras está correta
+% 1) Se A já estiver no workspace, o script usa A diretamente
+% 2) Se A não existir, o script carrega do arquivo de entrada
+% 3) A primeira coluna do arquivo é usada apenas para gene_ids
+% 4) As colunas da segunda em diante formam a matriz A
+%
+% ORDEM REAL DAS 35 AMOSTRAS:
+% Para cada réplica biológica:
+%   1 = T0 controle
+%   2 = T2h infectado
+%   3 = T0 + linezolida
+%   4 = T0 + vancomicina
+%   5 = T24h infectado
+%   6 = T24h infectado + linezolida
+%   7 = T24h infectado + vancomicina
+%
+% Repetido para rep1, rep2, rep3, rep4, rep5
 %% =========================================================
 
-clearvars -except A
+clearvars -except A gene_ids
 clc
 close all
 
 %% ---------------------------------------------------------
 % 0) Verificar se A existe
+%    Se não existir, carregar do arquivo:
+%    - coluna 1 = nomes/IDs dos genes
+%    - colunas 2:end = matriz numérica A
 %% ---------------------------------------------------------
 if ~exist('A', 'var')
-    error(['A variável A não está no workspace. ' ...
-           'Carregue primeiro a matriz de expressão gênica no MATLAB.']);
+
+    % Caminho do arquivo de entrada
+    inputFile = '~/Documentos/algoritmos/gse_no_head_data.txt';
+
+    % Expandir "~" para a HOME do usuário
+    if startsWith(inputFile, '~/')
+        inputFile = fullfile(getenv('HOME'), inputFile(3:end));
+    end
+
+    fprintf('A variável A não está no workspace.\n');
+    fprintf('Carregando matriz a partir do arquivo:\n%s\n', inputFile);
+
+    if ~isfile(inputFile)
+        error('Arquivo de entrada não encontrado: %s', inputFile);
+    end
+
+    % Ler arquivo tabulado, sem cabeçalho
+    T = readtable(inputFile, ...
+        'FileType', 'text', ...
+        'Delimiter', '\t', ...
+        'ReadVariableNames', false, ...
+        'VariableNamingRule', 'preserve');
+
+    % Primeira coluna = nomes/IDs dos genes
+    gene_ids = T{:,1};
+
+    % Garantir formato string
+    if iscell(gene_ids)
+        gene_ids = string(gene_ids);
+    elseif isnumeric(gene_ids)
+        gene_ids = string(gene_ids);
+    elseif ischar(gene_ids)
+        gene_ids = string(cellstr(gene_ids));
+    end
+
+    % Colunas 2:end = matriz numérica
+    A = T{:,2:end};
+
+    fprintf('Matriz A carregada do arquivo com sucesso.\n');
+    fprintf('Número de genes lidos: %d\n', size(A,1));
+    fprintf('Número de amostras lidas: %d\n', size(A,2));
+
+else
+    fprintf('A variável A já existe no workspace. Usando matriz já carregada.\n');
+
+    if ~exist('gene_ids', 'var')
+        warning(['A matriz A já existe, mas gene_ids não existe no workspace. ' ...
+                 'O script poderá identificar os índices dos genes, ' ...
+                 'mas não mostrará os nomes/IDs reais.']);
+    end
 end
 
 %% ---------------------------------------------------------
@@ -35,7 +100,7 @@ fprintf('Dimensão original da matriz A: %d genes x %d amostras\n', m, n);
 
 if n ~= 35
     warning(['Foram encontradas %d amostras. O desenho experimental do GSE38531 ' ...
-             'descreve 35 amostras (7 grupos de 5). Revise a matriz antes de seguir.'], n);
+             'descreve 35 amostras. Revise a matriz antes de seguir.'], n);
 end
 
 %% ---------------------------------------------------------
@@ -48,35 +113,45 @@ fprintf('Número de genes com pelo menos um NaN: %d\n', numNaN);
 
 A = A(~linhasComNaN, :);
 
+% Filtrar gene_ids junto com A
+if exist('gene_ids', 'var')
+    gene_ids = gene_ids(~linhasComNaN);
+end
+
 [m, n] = size(A);
 fprintf('Dimensão após remover genes com NaN: %d genes x %d amostras\n', m, n);
 
 %% ---------------------------------------------------------
 % 3) Definição dos grupos experimentais
 %
-% Ordem assumida:
-% G1 = controle não infectado
-% G2 = não infectado + linezolida
-% G3 = não infectado + vancomicina
-% G4 = infectado 2h sem tratamento
-% G5 = infectado 24h sem tratamento
-% G6 = infectado 24h + linezolida
-% G7 = infectado 24h + vancomicina
+% Ordem REAL das amostras:
+% rep1: 1:7
+% rep2: 8:14
+% rep3: 15:21
+% rep4: 22:28
+% rep5: 29:35
 %
-% Cada grupo com 5 amostras
+% Dentro de cada réplica:
+% 1 = T0 controle
+% 2 = T2h infectado
+% 3 = T0 + linezolida
+% 4 = T0 + vancomicina
+% 5 = T24h infectado
+% 6 = T24h infectado + linezolida
+% 7 = T24h infectado + vancomicina
 %% ---------------------------------------------------------
 if n ~= 35
-    error(['Este script está configurado para 35 amostras distribuídas em 7 grupos de 5. ' ...
+    error(['Este script está configurado para 35 amostras. ' ...
            'Como sua matriz atual não tem 35 colunas, primeiro revise a montagem da A.']);
 end
 
-idx_G1 = 1:5;
-idx_G2 = 6:10;
-idx_G3 = 11:15;
-idx_G4 = 16:20;
-idx_G5 = 21:25;
-idx_G6 = 26:30;
-idx_G7 = 31:35;
+idx_G1 = [1 8 15 22 29];   % controle não infectado (T0)
+idx_G2 = [3 10 17 24 31];  % não infectado + linezolida (T0)
+idx_G3 = [4 11 18 25 32];  % não infectado + vancomicina (T0)
+idx_G4 = [2 9 16 23 30];   % infectado 2h sem tratamento
+idx_G5 = [5 12 19 26 33];  % infectado 24h sem tratamento
+idx_G6 = [6 13 20 27 34];  % infectado 24h + linezolida
+idx_G7 = [7 14 21 28 35];  % infectado 24h + vancomicina
 
 Indicadores = zeros(7, n);
 Indicadores(1, idx_G1) = 1;
@@ -164,7 +239,7 @@ disp('Probabilidades do modelo completo:');
 disp(p);
 
 %% ---------------------------------------------------------
-% 8) Seleção de atributos
+% 8a) Seleção de atributos
 %
 % 10 alphas mais negativos + 10 mais positivos
 %% ---------------------------------------------------------
@@ -194,6 +269,32 @@ legend('Todos os alpha', 'Mais negativos', 'Mais positivos');
 hold off;
 
 %% ---------------------------------------------------------
+% 8b) Guardar os 10 alphas mais negativos e os 10 mais positivos
+%% ---------------------------------------------------------
+alphaNegValores = alpha(indxMin);
+alphaPosValores = alpha(indxMax);
+
+if exist('gene_ids', 'var')
+    top10Neg = table(indxMin(:), gene_ids(indxMin), alphaNegValores(:), ...
+        'VariableNames', {'IndiceGene', 'GeneID', 'Alpha'});
+
+    top10Pos = table(indxMax(:), gene_ids(indxMax), alphaPosValores(:), ...
+        'VariableNames', {'IndiceGene', 'GeneID', 'Alpha'});
+else
+    top10Neg = table(indxMin(:), alphaNegValores(:), ...
+        'VariableNames', {'IndiceGene', 'Alpha'});
+
+    top10Pos = table(indxMax(:), alphaPosValores(:), ...
+        'VariableNames', {'IndiceGene', 'Alpha'});
+end
+
+disp('Top 10 genes com alpha mais negativo:');
+disp(top10Neg);
+
+disp('Top 10 genes com alpha mais positivo:');
+disp(top10Pos);
+
+%% ---------------------------------------------------------
 % 9) Montar matriz reduzida
 %% ---------------------------------------------------------
 Ar = [A2(indxMin, :); A2(indxMax, :)];
@@ -202,8 +303,6 @@ fprintf('Dimensão da matriz reduzida Ar: %d atributos x %d amostras\n', size(Ar
 
 %% ---------------------------------------------------------
 % 10) Resolver alpha do modelo reduzido
-%
-% Conforme o espírito do enunciado, agora temos poucos atributos.
 %% ---------------------------------------------------------
 alphar = Ar' \ b;
 
@@ -228,7 +327,6 @@ disp(pr);
 %% ---------------------------------------------------------
 % 12) Verificar acurácia do classificador
 %% ---------------------------------------------------------
-
 y_true = [ones(5,1); zeros(5,1)];
 
 y_pred_full = p >= 0.5;
@@ -240,14 +338,92 @@ acc_red = mean(y_pred_red == y_true);
 fprintf('Acurácia modelo completo: %.2f%%\n', acc_full*100);
 fprintf('Acurácia modelo reduzido: %.2f%%\n', acc_red*100);
 
-
 %% ---------------------------------------------------------
 % 13) Salvar resultados
 %% ---------------------------------------------------------
-save('resultado_GSE38531_classificador.mat', ...
-    'alpha', 'alphar', 'p', 'pr', ...
-    'indxMin', 'indxMax', ...
-    'idxClasse1', 'idxClasse0', ...
-    'A2', 'Ar', 'Indicadores', 'b');
+if exist('gene_ids', 'var')
+    save('resultado_GSE38531_classificador.mat', ...
+        'alpha', 'alphar', 'p', 'pr', ...
+        'indxMin', 'indxMax', ...
+        'alphaNegValores', 'alphaPosValores', ...
+        'top10Neg', 'top10Pos', ...
+        'idxClasse1', 'idxClasse0', ...
+        'A2', 'Ar', 'Indicadores', 'b', ...
+        'gene_ids');
+else
+    save('resultado_GSE38531_classificador.mat', ...
+        'alpha', 'alphar', 'p', 'pr', ...
+        'indxMin', 'indxMax', ...
+        'alphaNegValores', 'alphaPosValores', ...
+        'top10Neg', 'top10Pos', ...
+        'idxClasse1', 'idxClasse0', ...
+        'A2', 'Ar', 'Indicadores', 'b');
+end
 
 fprintf('\nResultados salvos em: resultado_GSE38531_classificador.mat\n');
+
+%% ---------------------------------------------------------
+% 14) Decomposição SVD e gráfico dos valores singulares
+%% ---------------------------------------------------------
+Msvd = A2;
+
+[T, S, D] = svd(Msvd, 'econ');
+
+A_reconstruida = T * S * D';
+erro_reconstrucao = norm(Msvd - A_reconstruida, 'fro');
+fprintf('Erro de reconstrução pela SVD: %.6e\n', erro_reconstrucao);
+
+s = diag(S);
+
+figure;
+plot(1:length(s), s, '-o');
+grid on;
+title('Valores singulares de A2');
+xlabel('Índice');
+ylabel('Valor singular');
+
+s_rel = s / sum(s);
+
+figure;
+plot(1:length(s_rel), s_rel, '-o');
+grid on;
+title('Valores singulares relativos de A2');
+xlabel('Índice');
+ylabel('Peso relativo');
+
+disp('Valores singulares absolutos:');
+disp(s);
+
+disp('Valores singulares relativos:');
+disp(s_rel);
+
+s_acum = cumsum(s_rel);
+
+figure;
+plot(1:length(s_acum), s_acum, '-o');
+grid on;
+title('Soma acumulada dos valores singulares relativos');
+xlabel('Número de componentes');
+ylabel('Proporção acumulada');
+ylim([0 1.05]);
+
+disp('Soma acumulada dos valores singulares relativos:');
+disp(s_acum);
+
+%% ---------------------------------------------------------
+% 15) Projeção nos 3 primeiros componentes principais
+%% ---------------------------------------------------------
+Aux = S * D';
+
+x = Aux(1,:);
+y = Aux(2,:);
+z = Aux(3,:);
+
+figure;
+plot3(x, y, z, 'o');
+grid on;
+
+title('Projeção nos 3 primeiros componentes principais (SVD)');
+xlabel('Componente 1');
+ylabel('Componente 2');
+zlabel('Componente 3');
