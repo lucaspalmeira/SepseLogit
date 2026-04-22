@@ -42,7 +42,9 @@ close all
 if ~exist('A', 'var')
 
     % Caminho do arquivo de entrada
-    inputFile = '~/Documentos/algoritmos/gse_no_head_data.txt';
+    scriptDir = fileparts(mfilename('fullpath'));
+    projectRoot = fileparts(scriptDir);
+    inputFile = fullfile(projectRoot, 'data', 'gse_data_no_header.txt');
 
     % Expandir "~" para a HOME do usuário
     if startsWith(inputFile, '~/')
