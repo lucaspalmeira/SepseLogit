@@ -1,0 +1,9 @@
+Contraste,Descricao,ClassePositiva,ClasseNegativa,N_Positive,N_Negative,AccFull_Apparent,AccReduced_Apparent,AccAlphaSignature_LOOCV,AccKNN_Apparent,AccKNN_LOOCV,AccSVM_Apparent,AccSVM_LOOCV
+G4_vs_G1_infeccao_2h,infectado 2h vs controle T0,G4_Infected_2h,G1_Control_T0,5,5,1,1,1,1,1,1,1
+G5_vs_G1_infeccao_24h,infectado 24h sem tratamento vs controle T0,G5_Infected_24h_Untreated,G1_Control_T0,5,5,1,1,1,1,1,1,1
+G5_vs_G4_progressao_2h_para_24h,progressao da infeccao: 24h vs 2h,G5_Infected_24h_Untreated,G4_Infected_2h,5,5,1,1,1,1,1,1,1
+G6_vs_G5_efeito_linezolida,efeito da linezolida em animais infectados 24h,G6_Infected_24h_Linezolid,G5_Infected_24h_Untreated,5,5,1,1,0.5,0.9,0.9,1,0.8
+G7_vs_G5_efeito_vancomicina,efeito da vancomicina em animais infectados 24h,G7_Infected_24h_Vancomycin,G5_Infected_24h_Untreated,5,5,1,1,0.7,1,0.8,1,0.9
+G6_vs_G7_linezolida_vs_vancomicina,linezolida vs vancomicina em animais infectados 24h,G6_Infected_24h_Linezolid,G7_Infected_24h_Vancomycin,5,5,1,1,0.9,1,0.8,1,0.9
+G2_vs_G1_linezolida_sem_infeccao,linezolida em animal nao infectado vs controle T0,G2_Control_Linezolid,G1_Control_T0,5,5,1,1,0.7,0.8,0.5,1,0.8
+G3_vs_G1_vancomicina_sem_infeccao,vancomicina em animal nao infectado vs controle T0,G3_Control_Vancomycin,G1_Control_T0,5,5,1,1,0.6,1,0.9,1,1

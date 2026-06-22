@@ -1,0 +1,18 @@
+ProbeSetID,Categoria,GeneSymbol,GeneTitle,EntrezID,RefSeqTranscriptID,GB_ACC
+1421262_at,Prioridade principal: associado à infecção/progressão,Lipg,"lipase, endothelial",16891,NM_010720 /// XM_006525692,BC020991
+1418722_at,Prioridade principal: associado à infecção/progressão,Ngp,neutrophilic granule protein,18054,NM_008694,NM_008694
+1427747_a_at,Prioridade principal: associado à infecção/progressão,Lcn2,lipocalin 2,16819,NM_008491,X14607
+1450009_at,Prioridade principal: associado à infecção/progressão,Ltf,lactotransferrin,17002,NM_008522,NM_008522
+1450188_s_at,Prioridade principal: associado à infecção/progressão,Lipg,"lipase, endothelial",16891,NM_010720 /// XM_006525692,BC020991
+1437060_at,Prioridade principal: associado à infecção/progressão,Olfm4,olfactomedin 4,380924,NM_001030294 /// XM_006519174 /// XM_006519175,AV290148
+1434046_at,Prioridade principal: associado à infecção/progressão,AA467197,expressed sequence AA467197,433470,NM_001004174 /// XM_006499873,BG961961
+1419532_at,Prioridade principal: associado à infecção/progressão,Il1r2,"interleukin 1 receptor, type II",16178,NM_010555 /// XM_006495724 /// XM_006495725 /// XM_006495726,NM_010555
+1449366_at,Prioridade principal: associado à infecção/progressão,Mmp8,matrix metallopeptidase 8,17394,NM_008611,NM_008611
+1434758_at,Prioridade principal: associado à infecção/progressão,Crispld2,cysteine-rich secretory protein LCCL domain containing 2,78892,NM_030209 /// XM_006531507 /// XM_006531508 /// XM_006531509,BB745401
+1425451_s_at,Prioridade principal: associado à infecção/progressão,Chil3 /// Chil4,chitinase-like 3 /// chitinase-like 4,12655 /// 104183,NM_009892 /// NM_145126 /// XM_006500964,AY065557
+1419764_at,Prioridade principal: associado à infecção/progressão,Chil3,chitinase-like 3,12655,NM_009892 /// XM_006500964,NM_009892
+1450912_at,Marcador inverso: associado ao controle,Ms4a1,"membrane-spanning 4-domains, subfamily A, member 1",12482,NM_007641,BB236617
+1422122_at,Marcador inverso: associado ao controle,Fcer2a,"Fc receptor, IgE, low affinity II, alpha polypeptide",14128,NM_001253737 /// NM_001253739 /// NM_001253743 /// NM_001253745 /// NM_001253746 /// NM_001253747 /// NM_013517 /// XM_006508697,M99371
+1440837_at,Marcador inverso: associado ao controle,H2-Ob,"histocompatibility 2, O region beta locus",15002,NM_010389 /// XM_006523685 /// XM_006523686 /// XM_006525315 /// XM_006525316 /// XM_006536529 /// XM_006537262,BG144448
+1442023_at,Marcador inverso: associado ao controle,A530030E21Rik,RIKEN cDNA A530030E21 gene,320731,,BB220605
+1455530_at,Marcador inverso: associado ao controle,Ighv14-2,immunoglobulin heavy variable 14-2,668421,,BE686052

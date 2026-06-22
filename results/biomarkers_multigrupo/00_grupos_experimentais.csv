@@ -1,0 +1,8 @@
+Grupo,NomeCurto,Descricao,IndicesAmostras
+1,G1_Control_T0,controle nao infectado T0,[1 8 15 22 29]
+2,G2_Control_Linezolid,nao infectado + linezolida,[3 10 17 24 31]
+3,G3_Control_Vancomycin,nao infectado + vancomicina,[4 11 18 25 32]
+4,G4_Infected_2h,infectado 2h,[2 9 16 23 30]
+5,G5_Infected_24h_Untreated,infectado 24h sem tratamento,[5 12 19 26 33]
+6,G6_Infected_24h_Linezolid,infectado 24h + linezolida,[6 13 20 27 34]
+7,G7_Infected_24h_Vancomycin,infectado 24h + vancomicina,[7 14 21 28 35]

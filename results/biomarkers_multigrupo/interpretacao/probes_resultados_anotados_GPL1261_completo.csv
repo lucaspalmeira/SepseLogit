@@ -1,0 +1,49 @@
+ProbeSetID,Categoria,GeneSymbol,GeneTitle,EntrezID,RefSeqTranscriptID,GB_ACC
+1421262_at,Prioridade principal: infecção/progressão,Lipg,"lipase, endothelial",16891,NM_010720 /// XM_006525692,BC020991
+1418722_at,Prioridade principal: infecção/progressão,Ngp,neutrophilic granule protein,18054,NM_008694,NM_008694
+1427747_a_at,Prioridade principal: infecção/progressão,Lcn2,lipocalin 2,16819,NM_008491,X14607
+1450009_at,Prioridade principal: infecção/progressão,Ltf,lactotransferrin,17002,NM_008522,NM_008522
+1450188_s_at,Prioridade principal: infecção/progressão,Lipg,"lipase, endothelial",16891,NM_010720 /// XM_006525692,BC020991
+1437060_at,Prioridade principal: infecção/progressão,Olfm4,olfactomedin 4,380924,NM_001030294 /// XM_006519174 /// XM_006519175,AV290148
+1434046_at,Prioridade principal: infecção/progressão,AA467197,expressed sequence AA467197,433470,NM_001004174 /// XM_006499873,BG961961
+1419532_at,Prioridade principal: infecção/progressão,Il1r2,"interleukin 1 receptor, type II",16178,NM_010555 /// XM_006495724 /// XM_006495725 /// XM_006495726,NM_010555
+1449366_at,Prioridade principal: infecção/progressão,Mmp8,matrix metallopeptidase 8,17394,NM_008611,NM_008611
+1434758_at,Prioridade principal: infecção/progressão,Crispld2,cysteine-rich secretory protein LCCL domain containing 2,78892,NM_030209 /// XM_006531507 /// XM_006531508 /// XM_006531509,BB745401
+1425451_s_at,Prioridade principal: infecção/progressão,Chil3 /// Chil4,chitinase-like 3 /// chitinase-like 4,12655 /// 104183,NM_009892 /// NM_145126 /// XM_006500964,AY065557
+1419764_at,Prioridade principal: infecção/progressão,Chil3,chitinase-like 3,12655,NM_009892 /// XM_006500964,NM_009892
+1450912_at,Marcador inverso: controle,Ms4a1,"membrane-spanning 4-domains, subfamily A, member 1",12482,NM_007641,BB236617
+1422122_at,Marcador inverso: controle,Fcer2a,"Fc receptor, IgE, low affinity II, alpha polypeptide",14128,NM_001253737 /// NM_001253739 /// NM_001253743 /// NM_001253745 /// NM_001253746 /// NM_001253747 /// NM_013517 /// XM_006508697,M99371
+1440837_at,Marcador inverso: controle,H2-Ob,"histocompatibility 2, O region beta locus",15002,NM_010389 /// XM_006523685 /// XM_006523686 /// XM_006525315 /// XM_006525316 /// XM_006536529 /// XM_006537262,BG144448
+1442023_at,Marcador inverso: controle,A530030E21Rik,RIKEN cDNA A530030E21 gene,320731,,BB220605
+1455530_at,Marcador inverso: controle,Ighv14-2,immunoglobulin heavy variable 14-2,668421,,BE686052
+1419709_at,Outros probes citados nos resultados/contrastes,Stfa3,stefin A3,20863,NM_025288,NM_025288
+1419647_a_at,Outros probes citados nos resultados/contrastes,Ier3,immediate early response 3,15937,NM_133662,NM_133662
+1435761_at,Outros probes citados nos resultados/contrastes,BC100530 /// Stfa1,cDNA sequence BC100530 /// stefin A1,20861 /// 100034684,NM_001082543 /// NM_001082546,AW146083
+1434484_at,Outros probes citados nos resultados/contrastes,Wfdc21,WAP four-disulfide core domain 21,66107,NM_183249,AV006463
+1437056_x_at,Outros probes citados nos resultados/contrastes,Crispld2,cysteine-rich secretory protein LCCL domain containing 2,78892,NM_030209 /// XM_006531507 /// XM_006531508 /// XM_006531509,BB558800
+1422953_at,Outros probes citados nos resultados/contrastes,Fpr2,formyl peptide receptor 2,14289,NM_008039,NM_008039
+1436530_at,Outros probes citados nos resultados/contrastes,Wfdc17,WAP four-disulfide core domain 17,100034251,NM_001081957,AA666504
+1450826_a_at,Outros probes citados nos resultados/contrastes,Saa3,serum amyloid A 3,20210,NM_011315,NM_011315
+1450428_at,Outros probes citados nos resultados/contrastes,Lhx1,LIM homeobox protein 1,16869,NM_008498,AV335209
+1429274_at,Outros probes citados nos resultados/contrastes,Lypd6b,LY6/PLAUR domain containing 6B,71897,NM_027990 /// XM_006498350 /// XM_006498351 /// XM_006498352 /// XM_006498353 /// XM_006498354 /// XM_006498355 /// XM_006498356 /// XM_006498357 /// XM_006498358 /// XM_006498359,AK009282
+1419691_at,Outros probes citados nos resultados/contrastes,Camp,cathelicidin antimicrobial peptide,12796,NM_009921,NM_009921
+1416125_at,Outros probes citados nos resultados/contrastes,Fkbp5,FK506 binding protein 5,14229,NM_010220,U16959
+1425814_a_at,Outros probes citados nos resultados/contrastes,Calcrl,calcitonin receptor-like,54598,NM_018782 /// XM_006499918 /// XR_374490 /// XR_374491 /// XR_374492,AF209905
+1449434_at,Outros probes citados nos resultados/contrastes,Car3,carbonic anhydrase 3,12350,NM_007606,NM_007606
+1418930_at,Outros probes citados nos resultados/contrastes,Cxcl10,chemokine (C-X-C motif) ligand 10,15945,NM_021274,NM_021274
+1427381_at,Outros probes citados nos resultados/contrastes,Irg1,immunoresponsive gene 1,16365,NM_008392 /// XM_006518582,L38281
+1452349_x_at,Outros probes citados nos resultados/contrastes,Ifi205 /// Mnda,interferon activated gene 205 /// myeloid cell nuclear differentiation antigen,226695 /// 381308,NM_001033450 /// NM_172648 /// XM_006496912,AI481797
+1437226_x_at,Outros probes citados nos resultados/contrastes,Marcksl1,MARCKS-like 1,17357,NM_010807,AV110584
+1435906_x_at,Outros probes citados nos resultados/contrastes,Gbp2,guanylate binding protein 2,14469,NM_010260 /// XM_006501000,BE197524
+1417300_at,Outros probes citados nos resultados/contrastes,Smpdl3b,"sphingomyelin phosphodiesterase, acid-like 3B",100340,NM_133888,NM_133888
+1428579_at,Outros probes citados nos resultados/contrastes,Fmnl2,formin-like 2,71409,NM_172409 /// XM_006498330 /// XM_006498331 /// XM_006498332 /// XM_006498333 /// XM_006498334 /// XM_006498335 /// XM_006498336 /// XM_006498337 /// XM_006498338,AK017338
+1460282_at,Outros probes citados nos resultados/contrastes,Trem1,triggering receptor expressed on myeloid cells 1,58217,NM_021406 /// XM_006524726 /// XM_006524727 /// XM_006524728 /// XM_006524729 /// XM_006524730,NM_021406
+1415682_at,Outros probes citados nos resultados/contrastes,Xpo7,exportin 7,65246,NM_023045 /// XM_006519359 /// XM_006519360 /// XM_006519361,NM_023045
+1440865_at,Outros probes citados nos resultados/contrastes,Ifitm6,interferon induced transmembrane protein 6,213002,NM_001033632,BB193024
+1424509_at,Outros probes citados nos resultados/contrastes,Cd177,CD177 antigen,68891,NM_026862 /// XM_006540336,BC027283
+1419681_a_at,Outros probes citados nos resultados/contrastes,Prok2,prokineticin 2,50501,NM_001037539 /// NM_001170419 /// NM_015768,NM_015768
+1429889_at,Outros probes citados nos resultados/contrastes,Faim3,Fas apoptotic inhibitory molecule 3,69169,NM_026976,AK007714
+1427860_at,Outros probes citados nos resultados/contrastes,abParts /// Igkv6-13 /// Igkv6-14,"Parts of antibodies, mostly variable regions. /// immunoglobulin kappa variable 6-13 /// immunoglobulin kappa variable 6-14",667881,,U55641
+1423226_at,Outros probes citados nos resultados/contrastes,Ms4a1,"membrane-spanning 4-domains, subfamily A, member 1",12482,NM_007641,BB236617
+1419769_at,Outros probes citados nos resultados/contrastes,Cd22,CD22 antigen,12483,NM_001043317 /// NM_009845 /// NR_102722 /// NR_102723 /// XM_006539489 /// XM_006539490 /// XM_006539491 /// XM_006539492 /// XM_006539493 /// XM_006539494 /// XM_006539495 /// XR_391039,AF102134
+1456328_at,Outros probes citados nos resultados/contrastes,Bank1,B cell scaffold protein with ankyrin repeats 1,242248,NM_001033350 /// XM_006501483 /// XM_006501484 /// XM_006501485 /// XM_006501486 /// XM_006501487,AI451642
